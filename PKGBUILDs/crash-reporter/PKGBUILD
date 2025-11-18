@@ -1,0 +1,22 @@
+# Maintainer: Gemini <gemini@google.com>
+pkgname=crash-reporter
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="A utility for collecting crash logs and other system information to assist with debugging."
+arch=('x86_64')
+url="https://github.com/your-username/crash-reporter"
+license=('GPL3')
+depends=()
+makedepends=('gcc' 'make' 'git')
+source=("$pkgname::git+$url.git#branch=issue105")
+sha256sums=('SKIP')
+
+build() {
+	cd "$srcdir/$pkgname"
+	make -f Makefile.crash_reporter
+}
+
+package() {
+	cd "$srcdir/$pkgname"
+	install -Dm755 "crash-reporter" "$pkgdir/usr/bin/crash-reporter"
+}

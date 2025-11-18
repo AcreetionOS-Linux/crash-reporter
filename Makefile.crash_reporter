@@ -1,0 +1,22 @@
+# Makefile for AcreetionOS Crash Reporter
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+CC = gcc
+TARGET = crash_reporter
+SOURCE = crash_reporter.c
+CFLAGS = -Wall -Wextra -O2 -std=c11 `pkg-config --cflags gtk+-3.0`
+LDFLAGS = `pkg-config --libs gtk+-3.0 libcurl`
+
+.PHONY: all clean
+
+all: $(TARGET)
+
+$(TARGET): $(SOURCE)
+	@echo -e "\033[1;36m[BUILD]\033[0m Compiling Crash Reporter..."
+	$(CC) $(CFLAGS) -o $(TARGET) $(SOURCE) $(LDFLAGS)
+	@echo -e "\033[1;32m[SUCCESS]\033[0m ✓ Build complete! Binary: $(TARGET)"
+
+clean:
+	@echo -e "\033[1;33m[CLEAN]\033[0m Removing build artifacts..."
+	rm -f $(TARGET)
+	@echo -e "\033[1;32m[SUCCESS]\033[0m ✓ Clean complete!"
