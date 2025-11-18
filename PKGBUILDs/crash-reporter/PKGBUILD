@@ -4,19 +4,21 @@ pkgver=0.1.0
 pkgrel=1
 pkgdesc="A utility for collecting crash logs and other system information to assist with debugging."
 arch=('x86_64')
-url="https://github.com/your-username/crash-reporter"
+url="https://github.com/acreetionos-linux/crash-reporter"
 license=('GPL3')
 depends=()
-makedepends=('gcc' 'make' 'git')
-source=("$pkgname::git+$url.git#branch=issue105")
-sha256sums=('SKIP')
+makedepends=('gcc' 'make')
+source=("$pkgname-$pkgver.tar.gz::$url/archive/LATEST_COMMIT.tar.gz"
+        "Makefile.crash_reporter")
+sha256sums=('SKIP'
+            'SKIP')
 
 build() {
-	cd "$srcdir/$pkgname"
+	cd "$srcdir/$pkgname-LATEST_COMMIT"
 	make -f Makefile.crash_reporter
 }
 
 package() {
-	cd "$srcdir/$pkgname"
+	cd "$srcdir/$pkgname-LATEST_COMMIT"
 	install -Dm755 "crash-reporter" "$pkgdir/usr/bin/crash-reporter"
 }
