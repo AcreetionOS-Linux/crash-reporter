@@ -1,0 +1,42 @@
+/* src/style.css */
+
+window {
+    background-color: #2e3436;
+}
+
+GtkHeaderBar {
+    background-color: #3465a4;
+    color: white;
+}
+
+GtkHeaderBar .title {
+    color: white;
+}
+
+GtkLabel {
+    color: #eeeeec;
+}
+
+GtkTextView {
+    background-color: #000000;
+    color: #eeeeec;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #555753;
+}
+
+GtkButton {
+    background-image: none;
+    background-color: #729fcf;
+    color: black;
+    border-radius: 5px;
+    padding: 8px 15px;
+}
+
+GtkButton:hover {
+    background-color: #729fcf;
+}
+
+GtkButton:active {
+    background-color: #3465a4;
+}
