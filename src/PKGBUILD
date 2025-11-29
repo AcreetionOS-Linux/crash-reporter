@@ -7,9 +7,11 @@ arch=('x86_64')
 url="https://github.com/AcreetionOS-Linux/crash-reporter"
 license=('MIT')
 depends=('gtk3' 'curl' 'jansson' 'polkit')
-makedepends=('gcc' 'pkg-config' 'gtk3' 'libcurl' 'jansson')
-source=()
-sha256sums=()
+makedepends=('gcc' 'pkg-config' 'gtk3' 'curl' 'jansson')
+# Use the whole checkout as the source so makepkg can build directly from
+# the repository working tree. Checksums are skipped for local builds.
+source=( '.' )
+sha256sums=( 'SKIP' )
 
 build() {
   cd "$srcdir"

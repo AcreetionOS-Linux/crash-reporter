@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=AcreetionOS Crash Reporter
+Comment=Collect system diagnostics, generate AI summary, and file a GitHub issue
+Exec=/home/natalie/Projects/crash-reporter/crash_reporter
+Icon=./bug.jpg
+IconIndex=0
+WorkingDirectory=/home/natalie/Projects/crash-reporter
+Terminal=false
+Categories=Utility;System;Development;
+StartupWMClass=crash_reporter
